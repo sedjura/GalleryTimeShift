@@ -1,0 +1,11 @@
+﻿@model GalleryProject.Models.Photo
+
+@using (Ajax.BeginForm("TagsControl", "Photo", new AjaxOptions() { HttpMethod = "post", UpdateTargetId = string.Format("tags_{0}",@Model.Id), InsertionMode = InsertionMode.Replace }))
+{
+    @Html.Hidden("objID", @Model.Id)
+    <p>
+        @Html.LabelFor(m => m.Tags, "Теги")
+        @Html.EditorFor(m => m.Tags)
+        <button name="submit" value="Save">Сохранить</button>
+    </p>
+}

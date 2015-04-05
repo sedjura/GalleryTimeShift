@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "AddPhoto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model GalleryProject.Models.Photo
+
+<div>
+    <h2>Добавить фотографии</h2>
+
+    @using (Html.BeginForm("AddPhoto", "Photo", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+            @Html.HiddenFor(m => m.GalleryId, new { @Value = @ViewBag.GId })
+            <p>
+                @Html.ValidationMessageFor(m => m.Description)
+                <br />
+                @Html.LabelFor(m => m.Description, "Описание")
+                @Html.EditorFor(m => m.Description)
+            </p>
+            <p>
+                @Html.LabelFor(m => m.Img, "Фото")
+
+                <input type="file" name="uploadImage" />
+            </p>
+            <p>
+                <input type="submit" value="Добавить"/>
+            </p>
+    }
+
+</div>
+
+

@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+}
+
+<div>
+   <table>
+       @foreach (var g in ViewBag.Galleries)
+        {
+            <tr>
+                <td><p>@g.Name</p></td>
+            </tr>
+           
+           <tr>
+                <td><p><a href="/Home/ViewGallery/@g.Id">Просмотр</a></p></td>
+                <td><p><a href="/Home/EditGallery/@g.Id">Изменить</a></p></td>
+                <td><p><a href="/Home/DeleteGallery/@g.Id">Удалить</a></p></td>
+            </tr>
+           
+           <tr>
+               <td><p></p></td>
+           </tr>
+        }
+    </table>
+    <p><a href="/Home/CreateGallery">Создать новую галерею</a></p>
+</div>

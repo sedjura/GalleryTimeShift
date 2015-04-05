@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "CreateGallery";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model GalleryProject.Models.Gallery
+<h2>Создать галерею</h2>
+
+
+@using (Html.BeginForm())
+{
+    <p>
+        @Html.ValidationMessageFor(m => m.Name)
+        <br />
+        @Html.LabelFor(m=>m.Name,"Название галереи")
+        <br />
+        @Html.EditorFor(m=>m.Name)
+    </p>
+    <input type="submit" value="Создать" />
+}

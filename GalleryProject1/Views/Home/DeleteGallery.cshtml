@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "DeleteGallery";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model GalleryProject.Models.Gallery
+
+<h2>Удаление галереи @Model.Name</h2>
+
+<dl>
+    <dt>Название</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Name)
+    </dd>
+</dl>
+
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Удалить" />
+}

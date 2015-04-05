@@ -1,0 +1,24 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div>
+        <header> TimeShift Project </header>
+        <nav>
+            <ul class="menu">
+                <li>@Html.ActionLink("Галереи", "Index", "Home")</li>
+            </ul>
+        </nav>
+    </div>
+    @RenderBody()
+</body>
+</html>

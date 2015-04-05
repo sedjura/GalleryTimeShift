@@ -1,0 +1,12 @@
+﻿@model GalleryProject.Models.Photo
+
+@using (Ajax.BeginForm("LikesControl", "Photo", new AjaxOptions() { HttpMethod = "post", UpdateTargetId = string.Format("rating_{0}",@Model.Id), InsertionMode = InsertionMode.Replace }))
+{
+    @Html.Hidden("objID", @Model.Id)
+    <p>
+        @Html.LabelFor(m => m.Likes, "Лайк")
+        <button name="button" value="RatingUp">+</button>
+        <span id="rating_@Model.Id">@Model.Likes</span>
+        <button name="button" value="RatingDown">-</button>
+    </p>
+}

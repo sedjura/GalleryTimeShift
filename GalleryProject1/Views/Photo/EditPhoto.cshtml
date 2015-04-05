@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "EditPhoto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model GalleryProject.Models.Photo
+
+<h2>Редактирование фотографии</h2>
+
+@using (Html.BeginForm("EditPhoto", "Photo", FormMethod.Post))
+{
+    <fieldset>
+        @Html.HiddenFor(m => m.Id)
+        @Html.HiddenFor(m => m.GalleryId)
+        @Html.HiddenFor(m => m.Img)
+        <p>
+            @Html.LabelFor(m => m.Description, "Описание фотографии")
+            <br />
+            @Html.EditorFor(m => m.Description)
+        </p>
+        <p>
+            @Html.ValidationMessage("Tags")
+            @Html.LabelFor(m => m.Tags, "Теги")
+            <br />
+            @Html.EditorFor(m => m.Tags)
+        </p>
+        <p><input type="submit" value="Сохранить" /></p>
+    </fieldset>
+}
+

@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "CommentDelete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model GalleryProject.Models.Comment
+
+<h2>Удаление комментария </h2>
+
+<dl>
+    <dt>Описание</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Author)
+        @Html.DisplayFor(model => model.Text)
+    </dd>
+</dl>
+
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Удалить" />
+}

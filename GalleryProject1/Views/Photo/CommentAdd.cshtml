@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "CommentAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+} 
+
+@model GalleryProject.Models.Comment
+
+<h2>Добавить комментарий</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        @Html.ValidationMessageFor(m => m.Author)
+        @Html.LabelFor(m => m.Author, "Автор")
+        <br />
+        @Html.EditorFor(m => m.Author)
+    </p>
+    <p>
+        @Html.ValidationMessage("Comment")
+        @Html.LabelFor(m => m.Text, "Комментарий")
+        <br />
+        @Html.TextAreaFor(m => m.Text,5,50,null)
+    </p>
+    @Html.HiddenFor(m => m.PhotoId, new { @Value=@ViewBag.PhotoId})
+    <input type="submit" value="Создать" />
+}

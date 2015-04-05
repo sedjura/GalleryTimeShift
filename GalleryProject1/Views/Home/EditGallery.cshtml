@@ -1,0 +1,21 @@
+﻿@model GalleryProject.Models.Gallery
+@{
+    ViewBag.Title = "EditGallery";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Редактирование галереи @Model.Name</h2>
+@using (Html.BeginForm("EditGallery", "Home", FormMethod.Post))
+{
+    <fieldset>
+        @Html.HiddenFor(m=>m.Id)
+        <p>
+            @Html.ValidationMessageFor(m=>m.Name)
+            <br />
+            @Html.LabelFor(m=>m.Name,"Название галереи")
+            <br />
+            @Html.EditorFor(m=>m.Name)
+        </p>
+        <p><input type="submit" value="Сохранить" /></p>
+    </fieldset>
+}

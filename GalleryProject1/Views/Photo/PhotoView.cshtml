@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "PhotoView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model GalleryProject.Models.Photo
+<h3>Просмотр фотографии</h3>
+<div>
+   @Html.Raw("<img style='width:480px; height:640px;' src=\"data:image/jpeg;base64,"
+                                + Convert.ToBase64String(@Model.Img) + "\" />")
+    <br />
+
+
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+    
+    @Html.Partial("PartialLikes")
+    
+    @Html.LabelFor(m => m.Tags,"Теги")
+    @Html.TextBoxFor(m => m.Tags)
+
+    <br />
+    <p><a href="/Photo/CommentAdd/@Model.Id">Добавить комментарий</a></p>
+    <ul>
+        @foreach (var comment in @GalleryProject.Helpers.CommentHelper.Comment(@Model.Id))
+        {
+                <li>
+                   @comment.Author
+                    <p>
+                        @comment.Text
+                    </p>
+                    <p><a href="/Photo/CommentDelete/@comment.Id">Удалить</a></p>
+                </li>
+        }
+    </ul>
+</div>
